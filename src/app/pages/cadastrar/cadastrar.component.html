@@ -1,0 +1,71 @@
+<section class="register__container">
+
+    <div class="register__content">
+
+        <h1 class="page__title">Cadastrar Cliente</h1>
+
+        <form class="form__container" [formGroup]="formRegister" (ngSubmit)="submit()">
+
+            <div class="form-group">
+                <input type="text" class="form-input" name="name" id="name" formControlName="name">
+                <label [class]=" addClassDirty(formRegister.controls['name'].valid) +' form-label'"
+                    for="name">Nome:</label>
+            </div>
+
+            <div class="address__content" formGroupName="address">
+                <div class="address__form-group">
+                    <input type="text" class="form-input" name="street" id="street" formControlName="street">
+                    <label [class]="addClassDirty(formRegister.get('address.street')!.valid) +' address__form-label'"
+                        for="street">Rua:</label>
+                </div>
+                <div class="address__form-group">
+                    <input type="text" class="form-input" name="city" id="city" formControlName="city">
+                    <label [class]="addClassDirty(formRegister.get('address.city')!.valid) +' address__form-label'"
+                        for="city">Cidade:</label>
+                </div>
+                <div class="address__form-group">
+                    <input type="text" class="form-input" name="state" id="state" formControlName="state" maxlength="2">
+                    <label [class]="addClassDirty(formRegister.get('address.state')!.valid) +' address__form-label'"
+                        for="state">UF:</label>
+                </div>
+
+            </div>
+
+            <div class="phone__category">
+
+                <div class="form-group">
+                    <input type="text" class="form-input" name="phone" id="phone" formControlName="phone">
+                    <label [class]=" addClassDirty(formRegister.controls['phone'].valid) +' form-label'"
+                        for="phone">Telefone:</label>
+                </div>
+
+                <div class="form-group">
+                        <div class="status__item">
+                            <input type="radio" class="radio__btn" name="statusEnum" id="build" checked
+                                [value]="statusEnum.isBuild" formControlName="statusEnum">
+                            <label for="build" class="radio-label build-label">
+                                Construindo
+                                <i class="radio__marker"></i>
+                            </label>
+                        </div>
+                        <div class="status__item">
+                            <input type="radio" class="radio__btn" name="statusEnum" id="reform"
+                                [value]="statusEnum.isReform" formControlName="statusEnum">
+                            <label for="reform" class="radio-label reform-label">
+                                Reformando
+                                <i class="radio__marker"></i>
+                            </label>
+                        </div>
+                    </div>
+            </div>
+
+            <app-button [inputIsValid]="this.formRegister.valid" (onSubmitEmit)="submit()" inputBtnTitle="Cadastrar" />
+        </form>
+    </div>
+
+    @if(enabledFlashMessage){
+        <app-flash-message 
+            inputMessage="Cliente Cadastrado com sucesso!"
+        />
+    }
+</section>

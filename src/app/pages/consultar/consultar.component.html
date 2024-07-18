@@ -1,0 +1,44 @@
+<section class="search__container">
+    <div class="search__content">
+
+        <h2 class="page__title">
+            Pesquisar Clientes
+        </h2>
+
+        <form class="form__container" [formGroup]="formSearch" (ngSubmit)="onSubmit()">
+            <h4 class="radio__title">Selecione o tipo de pesquisar</h4>
+            <div class="form-group__radio" (change)="onChangeLabel()">
+                <div class="radio__select">
+                    <label class="search-type-label" for="searchTypeId">Id</label>
+                    <input type="radio" name="searchType" value="id" formControlName="searchType" id="searchTypeId"
+                        class="search-type__radio">
+                </div>
+                <div class="radio__select">
+                    <label class="search-type-label" for="searchTypeName">Nome</label>
+                    <input type="radio" name="searchType" id="searchTypeName" value="name" formControlName="searchType"
+                        class="search-type__radio">
+                </div>
+                <div class="radio__select">
+                    <label class="search-type-label" for="searchTypePhone">Telefone</label>
+                    <input type="radio" name="searchType" id="searchTypePhone" value="phone"
+                        formControlName="searchType" class="search-type__radio">
+                </div>
+            </div>
+            <div class="form-group column">
+                <input type="text" class="form-input" id="data" name="data" formControlName="data">
+                <label for="data" [class]="addClassDirty(formSearch.controls['data'].value.length) +' form-label'">
+                    Pesquisar por {{label}}
+                </label>
+                <app-button (onSubmitEmit)="onSubmit()" [inputIsValid]="formSearch.controls['data'].value.length>0"
+                    inputBtnTitle="Pesquisar" />
+            </div>
+        </form>
+    </div>
+    @if (isSearchOk) {
+
+    <app-modal [inputId]="client?.id || 0" [inputName]="client?.name || ''"
+        [inputStreet]="client?.address?.street || ''" [inputCity]="client?.address?.city || ''" [inputState]="client?.address?.state || ''"
+        [inputPhone]="client?.phone || ''" [inputStatusEnum]="client?.statusEnum || ''"
+        (closeModal)="onCloseModal($event)" (closeModal)="onCloseModalEsc($event)" />
+    }
+</section>

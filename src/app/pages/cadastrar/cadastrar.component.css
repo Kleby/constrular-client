@@ -1,0 +1,133 @@
+.register__container{
+    min-height: calc(100vh - 136px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.register__content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tertiary);
+    width: 720px;
+    border-radius: 8px;
+    margin-top: 64px;
+    padding-bottom: 32px;
+}
+
+.status__content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.status__item{
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.radio__btn{
+    appearance: none;
+    display: flex;
+    width: 48px;    
+    height: 22px;
+    background-color: var(--tertiary-111);
+    border-radius: 8px;
+    transition: 400ms ease-in-out;
+}
+
+.radio-label{
+    position: relative;
+    font-weight: 600;
+}
+
+.radio__marker{
+    content: "";
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #03037c;
+    left: 18px;
+    bottom: -23px;
+    transition: 400ms ease-in-out;
+
+}
+
+.radio__btn:checked{
+    background-color: #3e3ea8;
+}
+
+.radio__btn:checked + .radio-label > .radio__marker{
+    left: 50px;
+    background-color: #ff0000;
+}
+
+.btnRegister{
+    background-color: var(--primary-010);
+    color: var(--tertiary);
+    transition: 400ms ease-in-out;
+}
+
+.btnRegister:hover{
+    background-color: var(--primary-100);
+}
+
+.btnRegister.btn-disabled{
+    background-color: var(--tertiary-111);
+    cursor: default;
+}
+
+.build-label{
+    color: #0000ab;
+}
+
+.reform-label{
+    color: #e2e200;
+}
+
+.address__content{
+    display: grid;
+    grid-template-columns: 4fr 4fr 1fr;
+    padding: 32px 8px 16px;
+    border-radius: 8px;
+    gap: 16px;
+    background-color: var(--secondary);
+}
+
+.address__form-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary);
+}
+
+.address__form-label{
+    position: absolute;
+    left: 13px;
+    transition: 400ms;
+    top: 8px;
+}
+
+.form-input:focus + .address__form-label, .address__form-label.dirty
+{
+    top: -24px;
+}
+
+.phone__category{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
+}

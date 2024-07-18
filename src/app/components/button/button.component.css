@@ -1,0 +1,15 @@
+.btnSubmit{
+    background-color: var(--primary-010);
+    color: var(--tertiary);
+    transition: 400ms ease-in-out;
+    margin-top: 16px;
+}
+
+.btnSubmit:hover{
+    background-color: var(--primary-100);
+}
+
+.btnSubmit.btn-disabled{
+    background-color: var(--tertiary-111);
+    cursor: default;
+}

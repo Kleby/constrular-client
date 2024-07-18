@@ -1,0 +1,62 @@
+<section class="homer__container main__router">
+    <div class="homer__content">
+        <div class="content__dashboard">
+            <h2 class="dashboard__title">
+                Lista de clientes cadastados
+            </h2>
+            <p class="dashboard__description">
+                Cadastrados apartir de {{registerDate}}
+            </p>
+        </div>
+        <div class="dashboard__content">
+            <div class="table-header">
+                <p class="table-header__item">
+                    ID
+                </p>
+                <p class="table-header__item">
+                    Nome
+                </p>
+                <p class="table-header__item">
+                    Endereço
+                </p>
+                <p class="table-header__item">
+                    Telefone
+                </p>
+                <div class="table-header__item table__header-status">
+                    Categoria
+                    <div class="table__status">
+                        <span class="status__item">
+                            Construindo
+                            <i class="small-circle isBuild"></i>
+                        </span>
+                        <span class="status__item">
+                            Reformando
+                            <i class="small-circle isReform"></i>
+                        </span>
+                        <span class="status__item">
+                            Finalizado
+                            <i class="small-circle isFinally"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <span class="line"></span>
+            @for (cliente of listaClientes; track $index) {
+                <div class="table-body">
+                    <p class="table-body__item">{{cliente.id}}</p>
+                    <p class="table-body__item">{{cliente.name}}</p>
+                    <p class="table-body__item">{{cliente.address.street}}, {{cliente.address.city}} - {{cliente.address.state}}</p>
+                    <p class="table-body__item">{{cliente.phone}}</p>
+                    <p class="table-body__item">
+                        @if (cliente.statusEnum) {
+                            <i [class]="cliente.statusEnum + ' circle'"></i>
+                        }
+                    </p>
+                </div>
+                <span class="line"></span>
+            }@empty {
+                <h1>Nenhum cliente Cadastrado</h1>
+            }
+        </div>
+    </div>
+</section>

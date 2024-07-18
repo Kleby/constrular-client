@@ -1,0 +1,69 @@
+.flash-message__container {
+    background-color: #888a;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    z-index: 999;
+}
+
+.flash-message__content {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tertiary);
+    border-radius: 12px;
+}
+
+.message {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.flash-message__description {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--secondary);
+    position: absolute;
+    bottom: 0;
+}
+
+.flash-message__timing {
+    width: 100%;
+    position: relative;
+    height: 50%;
+}
+
+.timing__line {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 8px;
+    background-color: var(--secondary);
+    border-radius: 16px;
+    position: absolute;
+    bottom: 10px;
+    animation-name: width-line;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+
+
+@keyframes width-line {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0;
+    }
+    
+}

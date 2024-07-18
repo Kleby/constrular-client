@@ -1,0 +1,12 @@
+
+.footer{
+    height: 64px;
+    background-color: var(--tertiary);
+    width: 100%;
+    display: block;
+    padding: 8px 0;
+}
+
+.main{
+    height: calc(100vh - 136px);
+}

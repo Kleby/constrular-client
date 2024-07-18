@@ -1,0 +1,26 @@
+.footer__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: .9rem;
+    font-weight: 800;
+    height: 100%;
+}
+
+.footer__content{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.footer__title{
+    display: flex;
+    gap: 8px;
+}
+
+.footer__title-secondary{
+    color: var(--primary);
+}

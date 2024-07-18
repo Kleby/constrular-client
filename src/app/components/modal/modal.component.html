@@ -1,0 +1,24 @@
+<dialog class="search-modal__container" (keydown)="onCloseEsc($event)">
+    <div class="search-moda__content">
+
+        <button type="button" class="modal-close btn" (click)="onCloseModal()">x</button>
+        <h3 class="modal-title">Resultado da busca</h3>
+        <div class="modal__content">
+            <div class="modal-header">
+                <p class="modal-header__item">ID</p>
+                <p class="modal-header__item">Nome</p>
+                <p class="modal-header__item">Endereço</p>
+                <p class="modal-header__item">Telefone</p>
+                <p class="modal-header__item">Situação</p>
+            </div>
+            <i class="line"></i>
+            <div class="modal-result">
+                <p class="modal-result__item">{{id()}}</p>
+                <p class="modal-result__item">{{name()}}</p>
+                <p class="modal-result__item">{{street()}}, {{city()}} - {{state()}}</p>
+                <p class="modal-result__item">{{phone()}}</p>
+                <p [class]="'modal-result__item circle ' + statusEnum() "></p>
+            </div>
+        </div>
+    </div>
+</dialog>
